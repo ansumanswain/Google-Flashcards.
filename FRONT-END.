@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Flashcards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #flashcard-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #flashcard-container:hover {
+      transform: scale(1.05);
+    }
+
+    #flashcard-question, #flashcard-answer {
+      padding: 20px;
+    }
+
+    #flashcard-answer {
+      display: none;
+      color: #4CAF50; /* Green color for the answer */
+    }
+
+    #button-container {
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #4CAF50; /* Green button color */
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="flashcard-container" onclick="toggleAnswer()">
+  <div id="flashcard-question">What is the capital of Japan?</div>
+  <div id="flashcard-answer">The capital of Japan is Tokyo.</div>
+</div>
+
+<div id="button-container">
+  <button onclick="nextFlashcard()">Next Flashcard</button>
+  <button onclick="shuffleFlashcards()">Shuffle Flashcards</button>
+</div>
+
+<script>
+  const flashcards = [
+    { question: 'What is the capital of Japan?', answer: 'The capital of Japan is Tokyo.' },
+    { question: 'Which planet is known as the Red Planet?', answer: 'Mars is known as the Red Planet.' },
+    // Add more flashcards as needed
+  ];
+
+  let currentFlashcardIndex = 0;
+
+  function toggleAnswer() {
+    const answerElement = document.getElementById('flashcard-answer');
+    answerElement.style.display = (answerElement.style.display === 'none') ? 'block' : 'none';
+  }
+
+  function nextFlashcard() {
+    const questionElement = document.getElementById('flashcard-question');
+    const answerElement = document.getElementById('flashcard-answer');
+
+    // Hide the answer for the next flashcard
+    answerElement.style.display = 'none';
+
+    // Move to the next flashcard
+    currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+
+    // Display the new flashcard
+    questionElement.innerText = flashcards[currentFlashcardIndex].question;
+    answerElement.innerText = flashcards[currentFlashcardIndex].answer;
+  }
+
+  function shuffleFlashcards() {
+    const questionElement = document.getElementById('flashcard-question');
+    const answerElement = document.getElementById('flashcard-answer');
+
+    // Hide the answer for the next flashcard
+    answerElement.style.display = 'none';
+
+    // Shuffle the flashcards array
+    for (let i = flashcards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+
+    // Display the first flashcard after shuffling
+    currentFlashcardIndex = 0;
+    questionElement.innerText = flashcards[currentFlashcardIndex].question;
+    answerElement.innerText = flashcards[currentFlashcardIndex].answer;
+  }
+</script>
+
+</body>
+</html>
