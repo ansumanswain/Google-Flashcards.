@@ -1,3 +1,3 @@
 # Google Flashcards.
 Comprehensive &amp; Creative Flashcards' Website for Medical Students. Best Part's that it is FREE, i mean not entirely, cause you have to Pay Attention. This is Simple to use, Comprehensive & Cost-Free Website consisting of Associative Flashcards, which as we all know holds significance importance in their lives. There's "Google" in the site name cause it resembles a few characteristics of Google's Website, such as Simple UI/UX, that's all.
-My Aesthetic looking Introduction on the Initial page reasonably introduces me, additionally, here is the Ultimate way of making contact with me via E-mail-> ansumanswain25@gmail.com
+My Aesthetic looking Introduction on the Initial page reasonably introduces me, additionally, here is the Ultimate way of making contact with me via E-mail-> ansumanswain25@gmail.com.
